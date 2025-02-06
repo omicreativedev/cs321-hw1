@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible TOC</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.6;
+            background: #f4f4f4;
+            color: #333;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .tocbox {
+            background: white;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tocbox h2.toc-cat {
+            cursor: pointer;
+            margin: 0;
+            padding: 10px;
+            background: #98c0eb;
+            color: rgb(0, 0, 0);
+            border-radius: 5px;
+            font-size: 12pt;
+        }
+
+        a {
+            color: #00359e;
+        }
+
+        .bold-color {
+
+            font-weight: bold;
+            color: #00359e;
+
+        }
+
+        h1 {
+            font-size: 20pt;
+
+        }
+
+        .content {
+            display: none;
+            padding-bottom: 4px;
+        }
+
+
+
+        .expanded .content {
+            display: block;
+        }
+
+        #column {
+            position: relative;
+            width: 33%;
+
+        }
+
+        .topic {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .topic::before {
+            content: "\f054";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            font-family: "Font Awesome 6 Free";
+        }
+
+        .expanded .topic::before {
+            content: "\f078";
+        }
+
+        #subheading {
+            font-weight: bold;
+        }
+
+        nav #breadcrumbs a {
+            font-display: normal;
+            text-decoration: none;
+            color: #333;
+        }
+
+
+        nav #author-info {
+
+            padding-bottom: 40px;
+        }
+
+
+        #breadcrumbs {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 98%;
+            padding: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .left-align,
+        .right-align {
+            flex: 1;
+        }
+
+        .left-align {
+            text-align: left;
+        }
+
+        .right-align {
+            text-align: right;
+        }
+
+        nav {
+            padding-bottom: 40px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #333333;
+            padding: 8px;
+        }
+
+        .toTOC {
+            text-align: center;
+        }
+
+        .content .category {
+            background: #e7f1fc;
+            color: #333333;
+            border-radius: 5px;
+        }
+
+        .content div {
+            margin: 10px;
+            padding: 10px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Primary Breadcrumb Nav -->
+        <nav>
+            <section id="breadcrumbs">
+                <!-- Left -->
+                <div class="left-align">
+                    <a href="http://web.simmons.edu/~menzin/CS321/"><i class="fas fa-chevron-left"></i> Back to CS 321
+                        Main
+                        Page</a>
+                </div>
+                <!-- Right -->
+                <div class="right-align">
+
+                    <a href="http://web.simmons.edu/~menzin/CS321/CS321_TOC.html">Go To Course Table of Contents <i
+                            class="fas fa-chevron-right"></i></a>
+                </div>
+            </section>
+        </nav>
+
+
+        <!-- Meta Data Section -->
+        <section id="meta-data">
+            <!-- Page Update Information and Archive -->
+            Last Updated: 01/26/2022 | <a href="http://web.simmons.edu/%7Emenzin/IT320/IT320_Bookmarks.html">See
+                Archive</a>
+            <!-- Author Information Section -->
+            <section id="author-info">Author: Margaret Menzin
+                <a href="http://web.simmons.edu/%7Emenzin/"><i class="fas fa-globe"></i></a>
+                <a href="http://www.x.com/msmenzin"><i class="fab fa-x-twitter"></i></a>
+            </section>
+
+        </section>
+        <!-- Main Header Section -->
+        <h1><i class="fas fa-book"></i> Resources on Web-Centric Computing</h1>
+        <!-- Subheader Section -->
+        <section id="subheading">Including HTML5, CSS3, JavaScript, jQuery and Frameworks, AJAX, Mobile, XML, Web
+            Services and Node.js Technologies.
+        </section>
+        <!-- Informational Section -->
+        <section id="information">
+            <p>This is a very large set of resources. I suggest that you look at the broad outline of the Table of
+                Contents. The organization is:
+            <ul class="info-list">
+                <li> General Tools</li>
+                <li> Client-side programming (HTML5, XHTML, CSS, JavaScript and the DOM, page and site design; jQuery
+                    and other frameworks, AJAX)</li>
+                <li> Server-side Programming (Perl, PHP, etc., but especially Node.js)</li>
+                <li> XML (XML, XSL, Xpath , RSS, etc), Web Services (SOA, SOAP, WSDL, UDDI) and Web2.0 (AJAX, mashups,
+                    semantic web)</li>
+            </ul>
+            </p>
+            <p></p>You will notice that each of these broad topics is broken down into sections, and each section is
+            organized as Documentation and Books, Tutorials and Articles, Links and Other Resources.</p>
+            <!-- Useful Tips -->
+            <p><i class="fas fa-lightbulb"></i> I also find it very useful to use ctrl+f to find specific topics.</p>
+        </section>
+
+    </header>
+
+
+    <!-- Begin Table of Contents-->
+    <nav id="top">
+        <section id="toc">
+            <h2 class="bold-color">Table of Contents</h2>
+
+            <div class="tocbox">
+                <h2 class="toc-cat" onclick="toggleSection(this)"><span class="topic">General Tools</span></h2>
+                <div class="content">
+
+
+                    <div class="category">
+                        Tools and Resources for Many Web-Centric Topics
+
+                    </div>
+                    <div class="category">
+                        Tools and Resources for Many Web-Centric Topics
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+            <div class="tocbox">
+                <h2 class="toc-cat" onclick="toggleSection(this)"><span class="topic">Client-Side Programming</span>
+                </h2>
+                <div class="content">
+                    <h3 class="toc-main">Subtopic</h3>
+                </div>
+            </div>
+            <div class="tocbox">
+                <h2 class="toc-cat" onclick="toggleSection(this)"><span class="topic">Server-Side Programming</span>
+                </h2>
+                <div class="content">
+                    <h3 class="toc-main">Subtopic</h3>
+                </div>
+            </div>
+            <div class="tocbox">
+                <h2 class="toc-cat" onclick="toggleSection(this)"><span class="topic">XML</span></h2>
+                <div class="content">
+                    <h3 class="toc-main">Subtopic</h3>
+                </div>
+            </div>
+        </section>
+    </nav>
+    <!-- End Table of Contents -->
+
+
+
+    <!-- Paste Main Here -->
+
+    <script>
+        function toggleSection(element) {
+            element.parentElement.classList.toggle("expanded");
+        }
+    </script>
+</body>
+
+</html>
