@@ -1,0 +1,66 @@
+body {
+      font-family:Arial, Times;
+      font-size: 11pt;
+      text-align: left;
+     }
+article, div {
+       margin-left: 3em;
+     }
+
+h1, h2 {
+      text-align:center;
+     }
+
+#headThing h1, #headThing h2, #headThing h3 {
+      text-align: center;
+      }
+
+
+ul   {
+       list-style-type: none;
+     }
+
+#wholeThing h2 {
+     text-align: left;
+     font-size:small;
+     }
+
+#wholeThing h3 {
+     text-align: left;
+     margin-left: 0.3in;
+     }
+
+#wholeThing h4 {
+     text-align: left;
+     }
+
+td, th {
+    border: 1px solid; 
+    padding: 5px;
+    vertical-align: top    
+    }
+
+th {
+    font-weight:bold;
+    text-align: center
+    }
+
+
+table {
+    
+    border-collapse: collapse;
+    font-size: 9pt;
+    }
+
+.legnd {
+    font-size: x-small
+    }
+
+.toTOC {
+    text-align: center
+    }
+
+
+dl {
+    margin-left: 3em;
+   }
