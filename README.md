@@ -14,6 +14,8 @@ TO DO:
 * Do we want to add audio navigation?
 * Make work with zoom in and out
 * Check ARIA standards https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
+* JAWS https://hellboundbloggers.com/special-web-browsers-for-visual-impaired-users/8830/
+* 
 * Visited links should turn purple
 
 What else? Is there a Rubrick?
