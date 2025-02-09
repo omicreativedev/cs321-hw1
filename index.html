@@ -12,6 +12,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
+        /* https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_hlp_sr-only&stacked=h */
+
+        .sr-only {
+            height: 1px;
+            width: 1px;
+            clip: rect(1px, 1px, 1px, 1px);
+            overflow: hidden;
+            position: absolute;
+        }
+
+        /* https://www.w3schools.com/accessibility/accessibility_skip_links.php */
+        .skip {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .skip:focus {
+            position: static;
+            width: auto;
+            height: auto;
+        }
+
+        button.control {
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            border: 1px solid #333333;
+
+            border-radius: 5px;
+
+        }
+
+        #controls {
+            margin-bottom: 10px;
+        }
+
         body {
             font-family: 'Nunito', sans-serif;
             line-height: 1.6;
@@ -46,17 +86,24 @@
             text-align: left;
         }
 
-        a {
+        a,
+        a:active {
             color: #00359e;
         }
+
         a:visited {
-        color: purple; 
+            color: purple;
+        }
+
+        a:hover,
+        a::focus {
+            color: yellow;
         }
 
         .bold-color {
 
             font-weight: bold;
-            color: #00359e;
+            color: #112652;
 
         }
 
@@ -65,8 +112,12 @@
 
         }
 
-        .content {
+        .js-enabled .content {
             display: none;
+        }
+
+        .content {
+            display: block;
             padding-bottom: 4px;
         }
 
@@ -184,37 +235,54 @@
     <header>
         <!-- Primary Breadcrumb Nav -->
         <nav>
+
+            <a href="#main" class="skip" tabindex="1">Skip to main content</a>
+
+
             <section id="breadcrumbs">
                 <!-- Left -->
                 <div class="left-align">
-                    <a href="http://web.simmons.edu/~menzin/CS321/"><i class="fas fa-chevron-left"></i> Back to CS 321
+                    <a href="http://web.simmons.edu/~menzin/CS321/" tabindex="2"><i class="fas fa-chevron-left"></i>
+                        Back to CS 321
                         Main
                         Page</a>
                 </div>
                 <!-- Right -->
                 <div class="right-align">
 
-                    <a href="http://web.simmons.edu/~menzin/CS321/CS321_TOC.html">Go To Course Table of Contents <i
-                            class="fas fa-chevron-right"></i></a>
+                    <a href="http://web.simmons.edu/~menzin/CS321/CS321_TOC.html" tabindex="3">Go To Course Table of
+                        Contents <i class="fas fa-chevron-right"></i></a>
                 </div>
             </section>
         </nav>
 
-
+        <section id="controls">
+            <button class="control" tabindex="3" onclick="changeFont()">Read In Arial Font</button>
+        </section>
         <!-- Meta Data Section -->
+
+
+
         <section id="meta-data">
             <!-- Page Update Information and Archive -->
-            Last Updated: 01/26/2022 | <a href="http://web.simmons.edu/%7Emenzin/IT320/IT320_Bookmarks.html">See
+            Last Updated: 01/26/2022 | <a href="http://web.simmons.edu/%7Emenzin/IT320/IT320_Bookmarks.html"
+                tabindex="4">See
                 Archive</a>
             <!-- Author Information Section -->
             <section id="author-info">Author: Margaret Menzin
-                <a href="http://web.simmons.edu/%7Emenzin/"><i class="fas fa-globe"></i></a>
-                <a href="http://www.x.com/msmenzin"><i class="fab fa-x-twitter"></i></a>
+                <a href="http://web.simmons.edu/%7Emenzin/" tabindex="5"><i class="fas fa-globe"> <span class="sr-only">
+                            Globe Icon: Link To Website
+                        </span></i></a>
+                <a href="http://www.x.com/msmenzin" tabindex="6"><i class="fab fa-x-twitter"> <span class="sr-only">
+                            X Twitter Icon: Link To M S Menzin on Twitter
+                        </span></i></a>
             </section>
 
         </section>
         <!-- Main Header Section -->
-        <h1><i class="fas fa-book"></i> Resources on Web-Centric Computing</h1>
+        <h1><i class="fas fa-book"> <span class="sr-only">
+                    Icon of a Book
+                </span></i> Resources on Web-Centric Computing</h1>
         <!-- Subheader Section -->
         <section id="subheading">Including HTML5, CSS3, JavaScript, jQuery and Frameworks, AJAX, Mobile, XML, Web
             Services and Node.js Technologies.
@@ -235,7 +303,9 @@
             <p></p>You will notice that each of these broad topics is broken down into sections, and each section is
             organized as Documentation and Books, Tutorials and Articles, Links and Other Resources.</p>
             <!-- Useful Tips -->
-            <p><i class="fas fa-lightbulb"></i> I also find it very useful to use ctrl+f to find specific topics.</p>
+            <p><i class="fas fa-lightbulb"> <span class="sr-only">
+                        Icon of a Lightbulb: Helpful Tip!
+                    </span></i> I also find it very useful to use ctrl+f to find specific topics.</p>
         </section>
 
     </header>
@@ -243,6 +313,8 @@
 
     <!-- Begin Table of Contents-->
     <nav id="top">
+        <button class="control" tabindex="7" onclick="expandAll()">Expand All</button>
+        <button class="control" tabindex="8" onclick="collapseAll()">Collapse All</button>
         <section id="toc">
             <h2 class="bold-color">Table of Contents</h2>
 
@@ -468,7 +540,7 @@
 
             <!-- Javascript Section -->
             <div class="tocbox">
-              
+
 
                 <button class="toc-cat" aria-expanded="false" onclick="toggleSection(this)">
                     <span class="topic">Javascript</span>
@@ -560,12 +632,12 @@
 
             <!-- Node Section -->
             <div class="tocbox">
-            
+
 
                 <button class="toc-cat" aria-expanded="false" onclick="toggleSection(this)">
                     <span class="topic">Node.js, CGI and Server-Side
                         Scripting</span>
-                </button> 
+                </button>
 
                 <div class="content">
                     <div class="category">
@@ -621,11 +693,11 @@
 
             <!--XML Section -->
             <div class="tocbox">
-           
-                        <button class="toc-cat" aria-expanded="false" onclick="toggleSection(this)">
-                            <span class="topic">XML, Web Services, and Related
-                                Technologies</span>
-                        </button> 
+
+                <button class="toc-cat" aria-expanded="false" onclick="toggleSection(this)">
+                    <span class="topic">XML, Web Services, and Related
+                        Technologies</span>
+                </button>
 
                 <div class="content">
                     <div class="category">
@@ -759,7 +831,14 @@
 
 
 
-    <!-- Paste Main Here -->
+
+    <section id="main">
+
+        <!-- Paste Main Here -->
+
+
+
+    </section>
 
     <!-- 
     
@@ -768,8 +847,14 @@
     about hide/show - https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
     
     -->
+    <script>
+        document.documentElement.classList.add("js-enabled");
+    </script>
+
 
     <script>
+
+
         function toggleSection(button) {
             const parent = button.parentElement;
             const content = parent.querySelector('.content');
@@ -777,6 +862,24 @@
 
             button.setAttribute('aria-expanded', !isExpanded);
             parent.classList.toggle("expanded");
+        }
+
+        function changeFont() {
+            document.body.style.fontFamily = "Arial, sans-serif";
+        }
+
+        function expandAll() {
+            document.querySelectorAll('.toc-cat').forEach(button => {
+                button.setAttribute('aria-expanded', "true");
+                button.parentElement.classList.add("expanded");
+            });
+        }
+
+        function collapseAll() {
+            document.querySelectorAll('.toc-cat').forEach(button => {
+                button.setAttribute('aria-expanded', "false");
+                button.parentElement.classList.remove("expanded");
+            });
         }
     </script>
 </body>
